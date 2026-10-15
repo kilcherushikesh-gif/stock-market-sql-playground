@@ -109,7 +109,7 @@ with explorer_tab:
         ).fetchone()
         min_date, max_date = (pd.Timestamp(value).date() for value in date_bounds)
 
-        stock_col, date_col, metric_col = st.columns([1.4, 1.4, 1])
+        stock_col, date_col, metric_col = st.columns([1.4, 1.4, 1], wrap=True)
         with stock_col:
             selected_names = st.multiselect(
                 "Companies",
@@ -179,7 +179,7 @@ with explorer_tab:
                         if series.notna().any() else series
                     )
 
-                chart_col, download_col = st.columns([5, 1])
+                chart_col, download_col = st.columns([5, 1], wrap=True)
                 with chart_col:
                     st.subheader(f"{metric} by company")
                 with download_col:
